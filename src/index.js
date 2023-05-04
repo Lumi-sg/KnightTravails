@@ -32,27 +32,32 @@ function getLegalMoves(knight) {
 	return moves;
 }
 function knightTravail(start, end) {
+	const startKnight = new Knight(start[0], start[1]);
+	const endKnight = new Knight(end[0], end[1]);
+
 	const queue = [];
 	const visited = new Set();
 	const movesMap = new Map();
 
-	queue.push([start, 0]);
-	visited.add(start.x + "," + start.y);
-	movesMap.set(start.x + "," + start.y, null);
+	queue.push([startKnight, 0]);
+	visited.add(startKnight.x + "," + startKnight.y);
+	movesMap.set(startKnight.x + "," + startKnight.y, null);
 
 	while (queue.length > 0) {
 		const [knight, depth] = queue.shift();
 
-		if (knight.x === end.x && knight.y === end.y) {
+		if (knight.x === endKnight.x && knight.y === endKnight.y) {
 			const moves = [];
-			let curr = end;
+			let curr = endKnight;
 
 			while (curr) {
 				moves.unshift(curr);
 				curr = movesMap.get(curr.x + "," + curr.y);
 			}
-
-			return moves;
+			console.log(
+				`It took ${moves.length - 1} moves to go from ${startKnight.x},${startKnight.y} to ${endKnight.x},${endKnight.y}.`
+			);
+			console.log(moves.map((move) => `(${move.x},${move.y})`).join(" -> "));
 		}
 
 		const moves = getLegalMoves(knight);
@@ -70,13 +75,4 @@ function knightTravail(start, end) {
 
 	return null;
 }
-
-const start = new Knight(0, 0);
-const end = new Knight(7, 7);
-const moves = knightTravail(start, end);
-
-console.log(
-	`It took ${moves.length - 1} moves to go from ${start.x},${start.y} to ${end.x},${end.y}`
-);
-const movesText = moves.map((move) => `(${move.x},${move.y})`).join(" -> ");
-console.log(`Moves: ${movesText}`);
+knightTravail([0, 0], [7, 7]);
