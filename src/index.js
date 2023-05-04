@@ -55,7 +55,9 @@ function knightTravail(start, end) {
 				curr = movesMap.get(curr.x + "," + curr.y);
 			}
 			console.log(
-				`It took ${moves.length - 1} moves to go from ${startKnight.x},${startKnight.y} to ${endKnight.x},${endKnight.y}.`
+				`It took ${moves.length - 1} moves to go from ${startKnight.x},${startKnight.y} to ${endKnight.x},${
+					endKnight.y
+				}.`
 			);
 			console.log(moves.map((move) => `(${move.x},${move.y})`).join(" -> "));
 		}
@@ -76,3 +78,6 @@ function knightTravail(start, end) {
 	return null;
 }
 knightTravail([0, 0], [7, 7]);
+knightTravail([4, 2], [1, 6]);
+knightTravail([7, 5], [4, 2]);
+knightTravail([0, 0], [0, 0]);
