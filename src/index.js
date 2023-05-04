@@ -6,7 +6,7 @@ class Knight {
 		this.y = y;
 	}
 }
-function getLegalMoves(knight) {
+function getPossibleMoves(knight) {
 	const offsets = [
 		[-2, -1],
 		[-2, 1],
@@ -45,7 +45,7 @@ function knightTravail(start, end) {
 			return depth;
 		}
 
-		const moves = getLegalMoves(knight);
+		const moves = getPossibleMoves(knight);
 
 		for (const move of moves) {
 			const key = move.x + "," + move.y;
@@ -56,6 +56,8 @@ function knightTravail(start, end) {
 			}
 		}
 	}
+
+	return -1;
 }
 const start = new Knight(0, 0);
 const end = new Knight(7, 7);
