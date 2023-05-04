@@ -6,7 +6,7 @@ class Knight {
 		this.y = y;
 	}
 }
-function getPossibleMoves(knight) {
+function getLegalMoves(knight) {
 	const offsets = [
 		[-2, -1],
 		[-2, 1],
@@ -34,18 +34,28 @@ function getPossibleMoves(knight) {
 function knightTravail(start, end) {
 	const queue = [];
 	const visited = new Set();
+	const movesMap = new Map();
 
 	queue.push([start, 0]);
 	visited.add(start.x + "," + start.y);
+	movesMap.set(start.x + "," + start.y, null);
 
 	while (queue.length > 0) {
 		const [knight, depth] = queue.shift();
 
 		if (knight.x === end.x && knight.y === end.y) {
-			return depth;
+			const moves = [];
+			let curr = end;
+
+			while (curr) {
+				moves.unshift(curr);
+				curr = movesMap.get(curr.x + "," + curr.y);
+			}
+
+			return moves;
 		}
 
-		const moves = getPossibleMoves(knight);
+		const moves = getLegalMoves(knight);
 
 		for (const move of moves) {
 			const key = move.x + "," + move.y;
@@ -53,14 +63,20 @@ function knightTravail(start, end) {
 			if (!visited.has(key)) {
 				queue.push([move, depth + 1]);
 				visited.add(key);
+				movesMap.set(key, knight);
 			}
 		}
 	}
 
-	return -1;
+	return null;
 }
+
 const start = new Knight(0, 0);
 const end = new Knight(7, 7);
-const result = knightTravail(start, end);
+const moves = knightTravail(start, end);
 
-console.log(result);
+console.log(
+	`It took ${moves.length - 1} moves to go from ${start.x},${start.y} to ${end.x},${end.y}`
+);
+const movesText = moves.map((move) => `(${move.x},${move.y})`).join(" -> ");
+console.log(`Moves: ${movesText}`);
