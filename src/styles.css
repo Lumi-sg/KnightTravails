@@ -1,13 +1,22 @@
 .container {
 	display: flex;
-	justify-content: center; /* centers the chessboard horizontally */
-	align-items: center; /* centers the chessboard vertically */
-	height: 100vh; /* sets the container height to 100% of viewport height */
+	justify-content: center;
+	align-items: center;
+	min-height: 100%;
+	box-sizing: border-box;
+	padding: 20px;
 }
 
+.Title,
+.moveText {
+	font-size: x-large;
+	color: white;
+	align-self: center;
+	text-align: center;
+}
 .chessboard {
-	width: 400px; /* adjust to your desired size */
-	height: 400px; /* adjust to your desired size */
+	width: 800px;
+	height: 800px;
 	display: flex;
 	flex-direction: column;
 }
@@ -17,8 +26,8 @@
 }
 
 .square {
-	width: 50px; /* adjust to your desired size */
-	height: 50px; /* adjust to your desired size */
+	width: 100px;
+	height: 100px;
 	border: 1px solid black;
 }
 
@@ -28,4 +37,15 @@
 
 .black {
 	background-color: #b58863;
+}
+
+.clicked {
+	background-color: rgb(0, 0, 0);
+}
+body {
+	display: flex;
+	flex-direction: column;
+	margin: 0;
+	height: 100%;
+	box-sizing: border-box;
 }

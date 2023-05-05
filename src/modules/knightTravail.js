@@ -24,12 +24,16 @@ export function knightTravail(start, end) {
 				moves.unshift(current);
 				current = movesMap.get(current.x + "," + current.y);
 			}
-			console.log(
+			// alert();
+			// `It took ${moves.length - 1} moves to go from ${startKnight.x},${
+			// 	startKnight.y
+			// } to ${endKnight.x},${endKnight.y}.`
+			const moveText = document.querySelector(".moveText");
+			moveText.innerHTML =
 				`It took ${moves.length - 1} moves to go from ${startKnight.x},${
 					startKnight.y
-				} to ${endKnight.x},${endKnight.y}.`
-			);
-			console.log(moves.map((move) => `(${move.x},${move.y})`).join(" -> "));
+				} to ${endKnight.x},${endKnight.y}<br>` +
+				moves.map((move) => `(${move.x},${move.y})`).join(" &#8594; ");
 		}
 
 		const moves = getLegalMoves(knight);
