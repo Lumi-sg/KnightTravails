@@ -9,7 +9,6 @@ export function createChessBoard() {
 	board.className = "chessboard";
 	const moveText = document.querySelector(".moveText");
 	moveText.className = "moveText";
-
 	const userOutput = document.createElement("div");
 	userOutput.className = "userOutput";
 
@@ -31,7 +30,9 @@ export function createChessBoard() {
 			square.addEventListener("click", () => {
 				const squares = document.querySelectorAll(".square");
 				squares.forEach((square) => {
-					square.classList.remove("highlight");
+					square.classList.remove("highlight", "highlight-red", "highlight-green");
+
+					square.innerText = "";
 				});
 				square.classList.add("clicked");
 				selectedSquares.push(square);
