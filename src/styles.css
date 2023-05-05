@@ -29,6 +29,11 @@
 	width: 100px;
 	height: 100px;
 	border: 1px solid black;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: large;
+	font-weight: bold;
 }
 
 .white {
@@ -38,10 +43,27 @@
 .black {
 	background-color: #b58863;
 }
-
+.highlight-green {
+	background-color: green;
+}
+.highlight-red {
+	background-color: rgb(255, 45, 45);
+}
+.highlight,
+.highlight-green,
+.highlight-red {
+	border: 3px solid rgb(0, 140, 255);
+	border-radius: 20px;
+	box-sizing: border-box;
+	background-clip: padding-box;
+	border-width: -3px;
+	box-shadow: 0px 0px 5px 3px rgb(0, 140, 255);
+	transition: box-shadow 0.3s ease-out;
+}
 .clicked {
 	background-color: rgb(0, 0, 0);
 }
+
 body {
 	display: flex;
 	flex-direction: column;

@@ -29,6 +29,10 @@ export function createChessBoard() {
 			}
 
 			square.addEventListener("click", () => {
+				const squares = document.querySelectorAll(".square");
+				squares.forEach((square) => {
+					square.classList.remove("highlight");
+				});
 				square.classList.add("clicked");
 				selectedSquares.push(square);
 				moveText.innerText = "";
@@ -38,7 +42,6 @@ export function createChessBoard() {
 					let endPos = [7 - i, j];
 					setTimeout(() => {
 						knightTravail(startPos, endPos);
-						// Remove the "clicked" class from both selected squares
 						selectedSquares.forEach((selectedSquare) => {
 							selectedSquare.classList.remove("clicked");
 						});
