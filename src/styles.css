@@ -1,0 +1,31 @@
+.container {
+	display: flex;
+	justify-content: center; /* centers the chessboard horizontally */
+	align-items: center; /* centers the chessboard vertically */
+	height: 100vh; /* sets the container height to 100% of viewport height */
+}
+
+.chessboard {
+	width: 400px; /* adjust to your desired size */
+	height: 400px; /* adjust to your desired size */
+	display: flex;
+	flex-direction: column;
+}
+
+.row {
+	display: flex;
+}
+
+.square {
+	width: 50px; /* adjust to your desired size */
+	height: 50px; /* adjust to your desired size */
+	border: 1px solid black;
+}
+
+.white {
+	background-color: white;
+}
+
+.black {
+	background-color: #b58863;
+}
