@@ -30,10 +30,10 @@ export function knightTravail(start, end) {
 
 			const moveText = document.querySelector(".moveText");
 			moveText.innerHTML =
-				`It took ${moves.length - 1} moves to go from ${startKnight.x},${
+				`It took ${moves.length - 1} moves to go from [${startKnight.x},${
 					startKnight.y
-				} to ${endKnight.x},${endKnight.y}<br>` +
-				moves.map((move) => `(${move.x},${move.y})`).join(" &#8594; ");
+				}] to [${endKnight.x},${endKnight.y}]<br>` +
+				moves.map((move) => `[${move.x},${move.y}]`).join(" &#8594; ");
 		}
 
 		const moves = getLegalMoves(knight);
