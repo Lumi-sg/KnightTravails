@@ -33,6 +33,7 @@
 	justify-content: center;
 	align-items: center;
 	font-size: xx-large;
+	box-sizing: border-box;
 }
 
 .white {
