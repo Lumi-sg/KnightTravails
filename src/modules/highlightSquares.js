@@ -8,12 +8,14 @@ export function highlightSquares(moves) {
 			);
 			if (index === 0) {
 				square.classList.add("highlight-green");
+				square.textContent = "";
 			} else if (index === totalMoves - 1) {
 				square.classList.add("highlight-red");
+				square.textContent = index;
 			} else {
 				square.classList.add("highlight");
+				square.textContent = index;
 			}
-			square.textContent = `(${move.x}, ${move.y})`;
 		}, delay);
 		delay += 1000;
 	});
