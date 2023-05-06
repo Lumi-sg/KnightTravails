@@ -37,20 +37,21 @@
 .square {
 	width: 5vw;
 	height: 5vw;
-	border: 1px solid black;
+	border: 1px solid white;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	font-size: 2vw;
 	box-sizing: border-box;
+	color: white;
 }
 
 .white {
-	background-color: white;
+	background-color: #181a1b;
 }
 
 .black {
-	background-color: #b58863;
+	background-color: #805b3d;
 }
 .highlight-green,
 .clicked {
