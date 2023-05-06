@@ -56,7 +56,8 @@
 .clicked {
 	background-color: green;
 }
-.highlight-red {
+.highlight-red,
+.clickedTwo {
 	background-color: rgb(255, 45, 45);
 }
 .highlight,

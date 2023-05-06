@@ -38,27 +38,33 @@ export function createChessBoard() {
 			}
 
 			square.addEventListener("click", () => {
-				const squares = document.querySelectorAll(".square");
-				squares.forEach((square) => {
-					square.classList.remove("highlight", "highlight-red", "highlight-green");
+				selectPositions();
 
-					square.innerText = "";
-				});
-				square.classList.add("clicked");
-				selectedSquares.push(square);
-				moveText.innerText = "";
-				if (startPos === null) {
-					startPos = [7 - i, j];
-				} else {
-					let endPos = [7 - i, j];
-					setTimeout(() => {
-						knightTravail(startPos, endPos);
-						selectedSquares.forEach((selectedSquare) => {
-							selectedSquare.classList.remove("clicked");
-						});
-						selectedSquares = [];
-						startPos = null;
-					}, 10);
+				function selectPositions() {
+					const squares = document.querySelectorAll(".square");
+					squares.forEach((square) => {
+						square.classList.remove("highlight", "highlight-red", "highlight-green");
+
+						square.innerText = "";
+					});
+					square.classList.add("clicked");
+					selectedSquares.push(square);
+					moveText.innerText = "";
+					if (startPos === null) {
+						startPos = [7 - i, j];
+					} else {
+						selectedSquares.push(square);
+						square.classList.add("clickedTwo");
+						let endPos = [7 - i, j];
+						setTimeout(() => {
+							knightTravail(startPos, endPos);
+							selectedSquares.forEach((selectedSquare) => {
+								selectedSquare.classList.remove("clicked");
+							});
+							selectedSquares = [];
+							startPos = null;
+						}, 10);
+					}
 				}
 			});
 

@@ -27,6 +27,8 @@ export function highlightSquares(moves) {
 
 	// remove the blockDiv after all the highlights have been applied
 	setTimeout(() => {
+		const allSquares = document.querySelectorAll(".square");
+		allSquares.forEach((square) => square.classList.remove("clickedTwo"));
 		blockDiv.remove();
 	}, delay + 500); // add extra delay to ensure all highlights have been applied
 }
